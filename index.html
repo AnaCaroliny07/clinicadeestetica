@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Clínica de Estética</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f1eb; 
+        }
+
+        header {
+            background-color: #6f4f37; 
+            color: white;
+            text-align: center;
+            padding: 40px;
+            background-image: url('https://img.freepik.com/vetores-premium/modelo-de-capa-minimalista-floral_202497-911.jpg'); 
+            background-size: cover;
+            background-position: center;
+            border-bottom: 4px solid #3e2c1c; 
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        main {
+            padding: 40px 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #6f4f37; 
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        input, select, button {
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input, select {
+            background-color: #f8f8f8;
+        }
+
+        button {
+            background-color: #6f4f37;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4e3624; 
+        }
+
+        .result {
+            margin-top: 20px;
+            background-color: #e6d8b9; 
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        .table th, .table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+
+        .table th {
+            background-color: #6f4f37; 
+            color: white;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f2f2f2; 
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #6f4f37;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Gestão de Clínica de Estética</h1>
+    </header>
+
+    <main>
+        
+        <section>
+            <h2>Cadastro de Cliente</h2>
+            <form id="clientForm">
+                <input type="text" id="clientName" placeholder="Nome do Cliente" required>
+                <input type="email" id="clientEmail" placeholder="E-mail do Cliente" required>
+                <input type="text" id="clientPhone" placeholder="Telefone do Cliente" required>
+                <button type="submit">Cadastrar Cliente</button>
+            </form>
+            <div id="clientResult" class="result"></div>
+        </section>
+
+      
+        <section>
+            <h2>Agendamento de Atendimento</h2>
+            <form id="appointmentForm">
+                <input type="text" id="appointmentClient" placeholder="Nome do Cliente" required>
+                <input type="date" id="appointmentDate" required>
+                <input type="time" id="appointmentTime" required>
+                <select id="appointmentService" required>
+                    <option value="">Selecione o Serviço</option>
+                    <option value="Limpeza de Pele">Limpeza de Pele</option>
+                    <option value="Massagem Relaxante">Massagem Relaxante</option>
+                    <option value="Hidratação Facial">Hidratação Facial</option>
+                </select>
+                <button type="submit">Agendar Atendimento</button>
+            </form>
+            <div id="appointmentResult" class="result"></div>
+        </section>
+
+    
+        <section>
+            <h2>Controle Financeiro</h2>
+            <form id="financialForm">
+                <input type="number" id="revenue" placeholder="Receita" required>
+                <input type="number" id="expense" placeholder="Despesa" required>
+                <input type="number" id="commission" placeholder="Comissão" required>
+                <button type="submit">Registrar Transação</button>
+            </form>
+            <div id="financialResult" class="result"></div>
+        </section>
+
+ 
+        <section>
+            <h2>Vendas e Compras</h2>
+            <form id="purchaseForm">
+                <input type="text" id="productName" placeholder="Produto" required>
+                <input type="number" id="productPrice" placeholder="Preço" required>
+                <input type="number" id="productQuantity" placeholder="Quantidade" required>
+                <button type="submit">Registrar Compra</button>
+            </form>
+            <div id="purchaseResult" class="result"></div>
+
+            <h3>Histórico de Compras</h3>
+            <table class="table" id="purchaseHistory">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+
+ 
+        <section>
+            <h2>Controle de Estoque</h2>
+            <form id="stockForm">
+                <input type="text" id="stockProduct" placeholder="Produto" required>
+                <input type="number" id="stockQuantity" placeholder="Quantidade" required>
+                <button type="submit">Atualizar Estoque</button>
+            </form>
+            <div id="stockResult" class="result"></div>
+
+            <h3>Estoque Atual</h3>
+            <table class="table" id="stockTable">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Gestão de Clínica de Estética</p>
+    </footer>
+
+    <script>
+        document.getElementById('clientForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('clientName').value;
+            const email = document.getElementById('clientEmail').value;
+            const phone = document.getElementById('clientPhone').value;
+            const clientData = `Cliente: ${name}<br>E-mail: ${email}<br>Telefone: ${phone}`;
+            document.getElementById('clientResult').innerHTML = `<strong>Cliente Cadastrado:</strong><br>${clientData}`;
+            document.getElementById('clientForm').reset();
+        });
+
+      
+        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const clientName = document.getElementById('appointmentClient').value;
+            const appointmentDate = document.getElementById('appointmentDate').value;
+            const appointmentTime = document.getElementById('appointmentTime').value;
+            const service = document.getElementById('appointmentService').value;
+            const appointmentData = `Cliente: ${clientName}<br>Data: ${appointmentDate}<br>Hora: ${appointmentTime}<br>Serviço: ${service}`;
+            document.getElementById('appointmentResult').innerHTML = `<strong>Atendimento Agendado:</strong><br>${appointmentData}`;
+            document.getElementById('appointmentForm').reset();
+        });
+
+      
+        document.getElementById('financialForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const revenue = parseFloat(document.getElementById('revenue').value);
+            const expense = parseFloat(document.getElementById('expense').value);
+            const commission = parseFloat(document.getElementById('commission').value);
+            const balance = revenue - expense - commission;
+            const financialData = `
+                Receita: R$ ${revenue}<br>
+                Despesa: R$ ${expense}<br>
+                Comissão: R$ ${commission}<br>
+                Saldo: R$ ${balance}
+            `;
+            document.getElementById('financialResult').innerHTML = `<strong>Controle Financeiro:</strong><br>${financialData}`;
+            document.getElementById('financialForm').reset();
+        });
+
+      
+        let purchaseHistory = [];
+        document.getElementById('purchaseForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const productName = document.getElementById('productName').value;
+            const productPrice = parseFloat(document.getElementById('productPrice').value);
+            const productQuantity = parseInt(document.getElementById('productQuantity').value);
+            const purchaseData = { productName, productPrice, productQuantity };
+            purchaseHistory.push(purchaseData);
+            updatePurchaseHistory();
+            document.getElementById('purchaseForm').reset();
+        });
+
+        function updatePurchaseHistory() {
+            const tbody = document.getElementById('purchaseHistory').getElementsByTagName('tbody')[0];
+            tbody.innerHTML = '';
+            purchaseHistory.forEach(item => {
+                const row = tbody.insertRow();
+                row.innerHTML = `<td>${item.productName}</td><td>R$ ${item.productPrice}</td><td>${item.productQuantity}</td>`;
+            });
+        }
+
+ 
+        let stock = [];
+        document.getElementById('stockForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const product = document.getElementById('stockProduct').value;
+            const quantity = parseInt(document.getElementById('stockQuantity').value);
+            const existingProduct = stock.find(item => item.product === product);
+            if (existingProduct) {
+                existingProduct.quantity += quantity;
+            } else {
+                stock.push({ product, quantity });
+            }
+            updateStockTable();
+            document.getElementById('stockForm').reset();
+        });
+
+        function updateStockTable() {
+            const tbody = document.getElementById('stockTable').getElementsByTagName('tbody')[0];
+            tbody.innerHTML = '';
+            stock.forEach(item => {
+                const row = tbody.insertRow();
+                row.innerHTML = `<td>${item.product}</td><td>${item.quantity}</td>`;
+            });
+        }
+    </script>
+
+</body>
+</html>
